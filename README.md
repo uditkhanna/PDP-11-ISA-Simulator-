@@ -3,26 +3,27 @@ PDP-11 ISA Simulator
 
 Language Used: SystemVerilog
 
-Design Strategy
-
+Design Strategy:
 We used an object oriented approach to designing the simulator, where the main object being modeled
 is the execution of an instruction through different phases:
 1. In fetch phase, a new instruction object is created. The IR and current PC fields are populated.
 2. In decode phase, the opcode is determined. Based upon the type of instruction, effective address calculation is performed and operands are fetched.
 3. The decoded object is passed to the execute phase, where the actual operation is performed upon operands and memory write and register writeback takes place, if required. If the decoded instruction is HALT, then then simulation is terminated and instruction count is displayed.
 
-Verification Strategy
+
+Verification Strategy:
 We exhaustively verified the ISA simulator, targeting the following aspects:
 1. Simulation of each opcode
 2. Condition codes affected by instructions
 3. Subroutine calls and returns
 4. Multiple combinations of addressing modes for source and destination operands
 
-Summary of Extra Credit
+
+Summary of Extra Credit:
 1. Implemented and verified byte variants of instructions.
 2. Produced a branch trace file as required.
 
-Using the simulator
+Using the simulator:
 1. Compile the PDP-11/20 ISA simulator using the Makefile as follows:
 make clean
 make compile
